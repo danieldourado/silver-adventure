@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class SphereTouch : MonoBehaviour
 {
     // Start is called before the first frame update
-    string btnName;
-    public int sceneToGo = 0;
+    public int sceneToLoad = 2;
     void Start()
     {
         
@@ -16,14 +15,22 @@ public class SphereTouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        if ((Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began) || Input.GetMouseButtonDown(0))
         {
-        Debug.Log("test");
-            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            Ray ray;
+            if (Input.touchCount > 0)
+            {
+                ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            }
+            else
+            {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            }
+
             RaycastHit Hit;
             if(Physics.Raycast(ray, out Hit))
             {
-                btnName = Hit.transform.name;
+                string btnName = Hit.transform.name;
                 switch(btnName)
                 {
                     case "Sphere1":
