@@ -28,5 +28,9 @@ public class VideoEnablerWhenDetected : MonoBehaviour, ITrackableEventHandler
             videoPlayer.Stop();
             videoPlayer.Play();
         }
+        if (newStatus == TrackableBehaviour.Status.NO_POSE)
+        {
+            videoPlayer.Stop();
+        }
     }
 }

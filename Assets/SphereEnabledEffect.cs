@@ -27,7 +27,7 @@ public class SphereEnabledEffect : MonoBehaviour,ITrackableEventHandler
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             transform.localScale = new Vector3(0,0,0);
-            iTween.ScaleTo(gameObject, iTween.Hash("easeType", "spring", "scale", new Vector3(1,1,1),"time", 0.6));
+            iTween.ScaleTo(gameObject, iTween.Hash("easeType", "spring", "scale", new Vector3(0.1f,0.1f,0.1f),"time", 0.6));
             Debug.Log("Enabled");
         }
     } 
