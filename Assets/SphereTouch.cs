@@ -34,13 +34,13 @@ public class SphereTouch : MonoBehaviour
                 switch(btnName)
                 {
                     case "Sphere1":
-                        SceneManager.LoadScene(1);
-                        break;
-                    case "Sphere2":
                         SceneManager.LoadScene(2);
                         break;
-                    case "Sphere3":
+                    case "Sphere2":
                         SceneManager.LoadScene(3);
+                        break;
+                    case "Sphere3":
+                        SceneManager.LoadScene(4);
                         break;
                 }
             }
