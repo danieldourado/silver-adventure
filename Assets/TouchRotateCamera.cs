@@ -15,7 +15,7 @@ public class TouchRotateCamera : MonoBehaviour
     {
         xAngle = 0;
         yAngle = 0;
-        this.transform.rotation = Quaternion.Euler(yAngle, xAngle, 0);
+        this.transform.localRotation = Quaternion.Euler(yAngle, xAngle, 0);
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class TouchRotateCamera : MonoBehaviour
                 SecondPoint = Input.GetTouch(0).position;
                 xAngle = xAngleTemp + (SecondPoint.x - FirstPoint.x) * 180 / Screen.width;
                 yAngle = yAngleTemp + (SecondPoint.y - FirstPoint.y) * 90 / Screen.height;
-                this.transform.rotation = Quaternion.Euler(yAngle, xAngle, 0.0f);
+                this.transform.localRotation = Quaternion.Euler(yAngle, xAngle, 0.0f);
             }
         }
 
