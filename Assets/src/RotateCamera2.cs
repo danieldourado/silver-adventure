@@ -14,7 +14,7 @@ public class RotateCamera2 : MonoBehaviour
     {
         cameraContainer = new GameObject("Camera Container");
         cameraContainer.transform.position = transform.position;
-        TouchRotateCamera tc  = cameraContainer.AddComponent<TouchRotateCamera>() as TouchRotateCamera;
+        //TouchRotateCamera tc  = cameraContainer.AddComponent<TouchRotateCamera>() as TouchRotateCamera;
         transform.SetParent(cameraContainer.transform);
 
         gyroEnabled = EnableGyro();
