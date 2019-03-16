@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SphereTouch : MonoBehaviour
 {
-    public int sceneToLoad = 0;
+    public int sceneToLoad = 2;
     public Material skyBox = null;
 
-    private void Awake() => DontDestroyOnLoad(transform.gameObject);
     void Update()
     {
         if ((Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began) || Input.GetMouseButtonDown(0))
@@ -26,11 +25,12 @@ public class SphereTouch : MonoBehaviour
             RaycastHit Hit;
             if(Physics.Raycast(ray, out Hit))
             {
-                SceneManager.LoadScene(sceneToLoad);
-                SphereController sphereController = (SphereController)FindObjectOfType(typeof(SphereController));
-                sphereController.gameObject.SendMessage("SetSkybox", skyBox);
-
-                Destroy(this);
+                if(Hit.transform.gameObject == gameObject)
+                {
+                    SphereHelper sphereHelper = (SphereHelper)FindObjectOfType(typeof(SphereHelper));
+                    sphereHelper.skyBox = skyBox;
+                    SceneManager.LoadScene(sceneToLoad);
+                }
             }
         }
     }
