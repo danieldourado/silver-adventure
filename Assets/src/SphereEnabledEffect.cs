@@ -6,6 +6,8 @@ using Vuforia;
 public class SphereEnabledEffect : MonoBehaviour,ITrackableEventHandler
 {
     private TrackableBehaviour mTrackableBehaviour;
+    public float targetSize = 0.06f;
+    public float time = 0.6f;
     void Start()
     {
         mTrackableBehaviour = transform.parent.GetComponent<TrackableBehaviour>();
@@ -27,7 +29,7 @@ public class SphereEnabledEffect : MonoBehaviour,ITrackableEventHandler
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             transform.localScale = new Vector3(0,0,0);
-            iTween.ScaleTo(gameObject, iTween.Hash("easeType", "spring", "scale", new Vector3(0.06f, 0.06f, 0.06f),"time", 0.6));
+            iTween.ScaleTo(gameObject, iTween.Hash("easeType", "spring", "scale", new Vector3(targetSize, targetSize, targetSize),"time", time));
             Debug.Log("Enabled");
         }
     } 
