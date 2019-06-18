@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="MarkerSegundoAndar" size="1.000000 1.852665" />
     <ImageTarget name="MarkerSalaNasa" size="1.000000 1.673913" />
-    <ImageTarget name="MarkerSegundoAndar" size="1.000000 1.863081" />
     <ImageTarget name="MarkerAuditorio" size="1.000000 1.592476" />
     <ImageTarget name="MarkerVideo" size="1.000000 1.854415" />
   </Tracking>
