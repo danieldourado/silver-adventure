@@ -9,6 +9,11 @@ public class DownloadPDF : MonoBehaviour
     {
         Application.OpenURL("https://rebrand.ly/Cabal360");
     }
+    // Start is called before the first frame update
+    public void DoDownloadPDF2017()
+    {
+        Application.OpenURL("https://www.cabal.com.br/relatorio/");
+    }
 
     public void Dial()
     {
