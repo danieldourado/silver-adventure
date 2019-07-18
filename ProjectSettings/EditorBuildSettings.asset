@@ -18,9 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/sphere.unity
     guid: 46ab5056ec1f7304284c48c0be044f64
   - enabled: 0
-    path: Assets/Scenes/sphere2.unity
-    guid: 65b507cc5d20d46319a393be100248b4
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/sphere3.unity
-    guid: d6473a47a6e8b4fdebea47cae8ea7add
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

@@ -7,6 +7,16 @@ public class DownloadPDF : MonoBehaviour
     // Start is called before the first frame update
     public void DoDownloadPDF()
     {
-        Application.OpenURL("http://bit.ly/cabalbrasil360");
+        Application.OpenURL("https://rebrand.ly/Cabal360");
+    }
+
+    public void Dial()
+    {
+        Application.OpenURL("tel:+556121018900");
+    }
+
+    public void Resume()
+    {
+        Application.OpenURL("https://career4.successfactors.com/career?company=sicoob");
     }
 }
