@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a454cce8e8e348228bb1d8660c9ee841, type: 3}
   m_Name: GoogleMapsViewSettings
   m_EditorClassIdentifier: 
-  _apiKeyIos: PASTE_YOUR_IOS_API_KEY_HERE
+  _apiKeyIos: AIzaSyA8iD9lStss7FMNdLVSlt4oz9O9mt71Isc
   _apiKeyAndroid: AIzaSyA8iD9lStss7FMNdLVSlt4oz9O9mt71Isc
   _addLocationPermission: 1
-  _iosUsageDescription: To display your location on the map we would need you to allow
-    location access
+  _iosUsageDescription: "Precisamos da sua localiza\xE7\xE3o para exibi\xE7\xE3o das
+    ag\xEAncias no mapa"

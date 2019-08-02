@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class CanvasControl : MonoBehaviour
@@ -12,7 +13,12 @@ public class CanvasControl : MonoBehaviour
 
     private void Start()
     {
-        DisableAllScreens(screens);
+        GoTo360();
+    }
+
+    public void GoToInicio()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void GoTo360()
@@ -30,14 +36,14 @@ public class CanvasControl : MonoBehaviour
     public void SetButtoClicked(Button button)
     {
         SetAllButtonsUnclicked(buttons);
-        button.GetComponent<Image>().color = new Color(1, 0, 0);
+        button.GetComponent<Image>().color = new Color(0, 0.5f, 1);
     }
 
     void SetAllButtonsUnclicked(List<Button> buttons)
     {
         foreach(Button button in buttons)
         {
-            button.GetComponent<Image>().color = new Color(1, 1, 1);
+            button.GetComponent<Image>().color = new Color(0, 0, 0);
         }
     }
 

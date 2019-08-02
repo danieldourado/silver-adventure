@@ -9,13 +9,12 @@ public class GoogleMapsMinimalDemo : MonoBehaviour
 	void Start()
 	{
 		var cameraPosition = new CameraPosition(
-			new LatLng(-15.7964211f, -47.8898464f), 5, 0, 0);
+			new LatLng(-15.7964211f, -47.8898464f), 11, 0, 0);
 		var options = new GoogleMapsOptions()
 			.Camera(cameraPosition);
 
 		_map = new GoogleMapsView(options);
         _map.Show(RectTransformToScreenSpace(rect), OnMapReady);
-
     }
 
 	void OnMapReady()
@@ -30,17 +29,19 @@ public class GoogleMapsMinimalDemo : MonoBehaviour
 		_map.AddMarker(new MarkerOptions().Position(new LatLng(-15.787927f, -47.878745f)).Title("SICOOB EXECUTIVO").Snippet("SBN QD 2 BL J ED ENGENHEIRO, , LOJAS 2,3,4 E MEZANI, ASA NORTE, Brasília - 70040-905"));
 		_map.AddMarker(new MarkerOptions().Position(new LatLng(-15.80854f, -47.86614f)).Title("SICOOB JUDICIÁRIO").Snippet("ESPLANADA SAF SUL QD-06 LOTE 01 SALA 07, S/N, ED PLENÁRIOS - STJ, ASA SUL, Brasília - 70070-600"));
 		_map.AddMarker(new MarkerOptions().Position(new LatLng(-15.8025f, -47.8629f)).Title("SICOOB LEGISLATIVO").Snippet("SAF SUL QUADRA 04 LOTE 1 2º SUBSOLO, S/N, ED. ANEXO III TCU, ASA SUL, Brasília - 70042-900"));
-        //_map.IsVisible = false;
+        _map.IsVisible = false;
 	}
 
     public void Show()
     {
         _map.IsVisible = true;
+        Screen.orientation = ScreenOrientation.Portrait;
     }
 
     public void Hide()
     {
         _map.IsVisible = false;
+        Screen.orientation = ScreenOrientation.AutoRotation;
     }
 	static Rect RectTransformToScreenSpace(RectTransform transform)
 	{
