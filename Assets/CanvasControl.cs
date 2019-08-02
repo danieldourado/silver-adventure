@@ -21,6 +21,12 @@ public class CanvasControl : MonoBehaviour
         vuforiaBehaviour.enabled = true;
     }
 
+    public void GoToAgencias()
+    {
+        DisableAllScreens(screens);
+        GameObject.FindObjectOfType<GoogleMapsMinimalDemo>().Show();
+    }
+
     public void SetButtoClicked(Button button)
     {
         SetAllButtonsUnclicked(buttons);
@@ -48,5 +54,6 @@ public class CanvasControl : MonoBehaviour
             screen.SetActive(false);
         }
         vuforiaBehaviour.enabled = false;
+        GameObject.FindObjectOfType<GoogleMapsMinimalDemo>().Hide();
     }
 }

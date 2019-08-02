@@ -161,6 +161,15 @@ public class GoogleMapsDemo : MonoBehaviour
 		Debug.Log("Map is ready: " + _map);
 		_map.SetPadding(0, 0, 0, 0);
 
+		var isStyleUpdateSuccess = _map.SetMapStyle(customStyleJson.text);
+		if (isStyleUpdateSuccess)
+		{
+			Debug.Log("Successfully updated style of the map");
+		}
+		else
+		{
+			Debug.LogError("Setting new map style failed.");
+		}
 
 #if UNITY_2018_3_OR_NEWER && PLATFORM_ANDROID
 			if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
@@ -168,7 +177,40 @@ public class GoogleMapsDemo : MonoBehaviour
 				Permission.RequestUserPermission(Permission.FineLocation);
 			}
 #endif
+
+		// UNCOMMENT if testing with showing users location. DON'T FORGET MANIFEST LOCATION PERMISSION!!!
+		_map.IsMyLocationEnabled = true;
+		_map.UiSettings.IsMyLocationButtonEnabled = true;
+		_map.OnOrientationChange += () => { _map.SetRect(RectTransformToScreenSpace(rect)); };
+
+		_map.SetOnCameraMoveStartedListener(moveReason => Debug.Log("Camera move started because: " + moveReason));
+		_map.SetOnCameraIdleListener(() => Debug.Log("Camera is now idle"));
+		_map.SetOnCircleClickListener(circle => Debug.Log("Circle clicked: " + circle));
+		_map.SetOnPolylineClickListener(polyline => Debug.Log("Polyline clicked: " + polyline));
+		_map.SetOnPolygonClickListener(polygon => Debug.Log("Polygon clicked: " + polygon));
+		_map.SetOnMarkerClickListener(marker => Debug.Log("Marker clicked: " + marker), false);
+		_map.SetOnInfoWindowClickListener(marker => Debug.Log("Marker info window clicked: " + marker));
+		_map.SetOnMapClickListener(point =>
+		{
+			Debug.Log("Map clicked: " + point);
+			_map.AddMarker(DemoUtils.RandomColorMarkerOptions(point));
+		});
+		_map.SetOnLongMapClickListener(point =>
+		{
+			Debug.Log("Map long clicked: " + point);
+			_map.AddCircle(DemoUtils.RandomColorCircleOptions(point));
+		});
+
+		// When the map is ready we can start drawing on it
+		AddCircle();
+		AddMarker();
+		AddGroundOverlay();
+		AddPolyline();
+		AddPolygon();
+		AddHeatmap();
 		AddMarkerCluster();
+
+		AddOtherExampleOverlays();
 	}
 
 	void AddOtherExampleOverlays()
